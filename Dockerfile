@@ -79,6 +79,14 @@ RUN ln -s usr/local/bin/docker-entrypoint.sh / # backwards compat
 
 RUN rabbitmq-plugins enable --offline rabbitmq_management
 
+RUN rabbitmq-plugins enable --offline rabbitmq_federation_management
+RUN rabbitmq-plugins enable --offline rabbitmq_federation
+RUN rabbitmq-plugins enable --offline rabbitmq_shovel_management
+RUN rabbitmq-plugins enable --offline rabbitmq_shovel
+RUN rabbitmq-plugins enable --offline rabbitmq_auth_mechanism_ssl
+RUN rabbitmq-plugins enable --offline rabbitmq_auth_backend_ldap
+RUN rabbitmq-plugins enable --offline rabbitmq_sharding
+
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 4369 5671 5672 15671 15672 25672
